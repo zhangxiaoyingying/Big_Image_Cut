@@ -23,30 +23,30 @@ string Int_to_String(int n)
 void main()
 {
 	GDALAllRegister();
-	//½â¾öÖĞÎÄÂ·¾¶ºÍ×Ö·ûµÄÂÒÂëÎÊÌâ
+	//è§£å†³ä¸­æ–‡è·¯å¾„å’Œå­—ç¬¦çš„ä¹±ç é—®é¢˜
 	CPLSetConfigOption( "GDAL_FILENAME_IS_UTF8", "NO" );
 	CPLSetConfigOption( "SHAPE_ENCODING", "" );
 
 	//dir = "e:\\test_image\\BigMap\\";
 	//dir1 = dir + "River_channel.tif";
 	//dir_r =  dir + "2_rotate_10.jpg";
-	//char SrcFilePath[1000] = "E:\\11\\2\\1.jpg";  //±»²ÃÇĞµÄÍ¼ÏñÂ·¾¶
+	//char SrcFilePath[1000] = "E:\\11\\2\\1.jpg";  //è¢«è£åˆ‡çš„å›¾åƒè·¯å¾„
 
 	char SrcFilePath[1000] ="e:\\test_image\\10k\\Level_17.tif" ;
 
 	const char* srcfile = SrcFilePath;
 	/*for (int i=4;i<6;i++)
 	{*/
-		//char DstFilePath[1000] = "E:\\11\\2\\";	//²ÃÇĞºóÍ¼ÏñµÄÂ·¾¶
+		//char DstFilePath[1000] = "E:\\11\\2\\";	//è£åˆ‡åå›¾åƒçš„è·¯å¾„
 		
 
 		int v,w;
-		ifstream infile;
-		infile.open("C:\\Users\\ZY\\Desktop\\imgdata.txt",ios::in);
+		ifstream infile;			//è¾“å…¥æ–‡ä»¶ä¸ºè£åˆ‡å­å—å›¾åƒçš„ä¸­å¿ƒåæ ‡
+		infile.open("C:\\Users\\ZY\\Desktop\\imgdata.txt",ios::in); //è¢«è£åˆ‡è¶…å¤§å›¾åƒ
 		if(!infile.is_open())
 			cout<<"open infile failure!"<<endl;
 
-		while(!infile.eof())				//Èô²»ÊÇÎÄ¼ş½áÎ²£¬¾ÍÒ»Ö±Ñ­»·
+		while(!infile.eof())				//è‹¥ä¸æ˜¯æ–‡ä»¶ç»“å°¾ï¼Œå°±ä¸€ç›´å¾ªç¯
 		{
 			infile>>v>>w;
 			string pp ="e:\\test_image\\BigMap\\" + Int_to_String(v)+"_"+Int_to_String(w) ;
@@ -61,9 +61,9 @@ void main()
 		char dst[1000];
 		
 		const char* dstfile = dst;
-		int iSizeX1 = 720;	//¶¨Òå²ÃÇĞºóÍ¼ÏñµÄ¿í
-		int iSizeY1 = 576;	//¶¨Òå²ÃÇĞºóÍ¼ÏñµÄ³¤
-		int iStartX1 =v - 360;//ÆğÊ¼×ø±ê
+		int iSizeX1 = 720;	//å®šä¹‰è£åˆ‡åå›¾åƒçš„å®½
+		int iSizeY1 = 576;	//å®šä¹‰è£åˆ‡åå›¾åƒçš„é•¿
+		int iStartX1 =v - 360;//èµ·å§‹åæ ‡ï¼Œå³å›¾åƒå·¦ä¸Šè§’çš„åæ ‡
 		int iStartY1 =w -288;
 
 		sprintf(dst,"%s.jpg",DstFilePath);
